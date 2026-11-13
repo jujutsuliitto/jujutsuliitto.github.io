@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'fi' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if page.url == "/" %}{% include legacy-redirect.html %}{% endif %}
+  {% seo %}
+  <link rel="icon" href="{{ '/assets/uploads/2015/12/Logo_transparent_small-75x75.png' | relative_url }}" sizes="32x32">
+  <link rel="icon" href="{{ '/assets/uploads/2015/12/Logo_transparent_small-300x300.png' | relative_url }}" sizes="192x192">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Lato:wght@400;700&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+<div id="wrapper">
+  <header id="header">
+    <a class="site-title" href="{{ '/' | relative_url }}" rel="home">
+      <img src="{{ '/assets/uploads/2015/12/Logo_transparent_small-75x75.png' | relative_url }}" alt="" width="48" height="48">
+      <span>{{ site.title }}</span>
+    </a>
+    <button class="nav-toggle" aria-controls="mainnav" aria-expanded="false">Valikko</button>
+  </header>
+
+  {% include nav.html %}
+
+  {% assign header_image = page.header_image | default: site.header_images.first %}
+  <div id="custom-header">
+    <img src="{{ header_image | relative_url }}" alt=""
+         data-random='[{% for i in site.header_images %}"{{ i | relative_url }}"{% unless forloop.last %},{% endunless %}{% endfor %}]'
+         {% if page.header_image %}data-fixed{% endif %}>
+  </div>
+
+  <div id="wrap" class="{{ page.layout_class }}">
+    {{ content }}
+  </div>
+
+  <footer id="footer">
+    &copy; {{ site.title }}
+  </footer>
+</div>
+<script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+</body>
+</html>

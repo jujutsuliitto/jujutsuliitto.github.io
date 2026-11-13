@@ -1,0 +1,11 @@
+{% comment %}Redirect old WordPress links such as /?page_id=16 to the new pages.{% endcomment %}
+<script>
+  (function () {
+    var map = {
+      {% for pair in site.data.legacy_urls %}"{{ pair[0] }}": "{{ pair[1] | relative_url }}"{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    };
+    var id = new URLSearchParams(location.search).get("page_id");
+    if (id && map[id]) location.replace(map[id]);
+  })();
+</script>

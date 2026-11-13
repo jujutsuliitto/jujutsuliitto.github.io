@@ -1,0 +1,30 @@
+title: Suomen Jujutsuliitto
+description: Suomen Jujutsuliitto – Finnish Jujutsu Federation
+lang: fi
+url: "https://www.jujutsuliitto.fi"
+# Leave empty when the site is served from its own domain (www.jujutsuliitto.fi).
+# If it is served from https://<user>.github.io/<repo>/ instead, set this to "/<repo>".
+baseurl: ""
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+plugins:
+  - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Images shown at random in the page header.
+header_images:
+  - /assets/uploads/2015/08/cropped-SJJLetusivu0708151.png
+  - /assets/uploads/2020/01/cropped-CJJ60-SJJL40-lmedium.2x.1573408450.jpg
+  - /assets/uploads/2020/01/cropped-DSC00667medium.2x.1573386850-1.jpg
+  - /assets/uploads/2020/01/cropped-IMG-0516medium.2x.1573391283.jpg
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

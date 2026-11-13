@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<main id="content" class="primary">
+  <article class="page">
+    <h2 class="page-title">{{ page.title }}</h2>
+    <div class="entry">
+      {{ content }}
+    </div>
+  </article>
+</main>
+<aside id="sidebar" class="secondary">
+  {% capture sidebar %}{% include sidebar.md %}{% endcapture %}
+  {{ sidebar | markdownify }}
+</aside>

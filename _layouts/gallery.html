@@ -1,0 +1,28 @@
+---
+layout: default
+layout_class: fullwidth
+---
+{% comment %}
+  Photo gallery page. Images are listed in the page front matter under
+  "sections". Each image needs "src" (full size); "thumb" (small preview)
+  and "alt" (description) are optional.
+{% endcomment %}
+<main id="content-full">
+  <article class="page">
+    <h2 class="page-title">{{ page.title }}</h2>
+    <div class="entry">
+      {{ content }}
+      {% for section in page.sections %}
+        {% if section.title and section.title != "" %}<h3>{{ section.title }}</h3>{% endif %}
+        <div class="gallery">
+          {% for image in section.images %}
+            {% assign alt = image.alt | default: section.title | default: page.title %}
+            <a href="{{ image.src | relative_url }}" class="gallery-item">
+              <img src="{{ image.thumb | default: image.src | relative_url }}" alt="{{ alt | escape }}" loading="lazy">
+            </a>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </article>
+</main>

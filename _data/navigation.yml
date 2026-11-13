@@ -1,0 +1,21 @@
+# Main menu. Order here = order in the menu. "children" become a dropdown.
+- title: Suomen Jujutsuliitto
+  url: /
+  children:
+    - title: Hallitus
+      url: /hallitus/
+- title: Jäsenseurat
+  url: /jasenseurat/
+- title: Jujutsu
+  url: /jujutsu/
+- title: Tapahtumat
+  url: /tapahtumat/
+- title: Galleria
+  url: /galleria/
+  children:
+    - title: Suomen jujutsuliiton 40v juhlaleiri 25-27.10.2019 Mikkeli
+      url: /galleria/juhlaleiri-2019/
+    - title: Sekalaisia kuvia muinaishistoriasta sekä nykypäivästä
+      url: /galleria/sekalaisia-kuvia/
+    - title: Soke Connellyn jujutsukesäleirin kuvia 2016
+      url: /galleria/kesaleiri-2016/

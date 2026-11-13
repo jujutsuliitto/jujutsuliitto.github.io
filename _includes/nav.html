@@ -1,0 +1,19 @@
+<nav id="mainnav" aria-label="Päävalikko">
+  <ul class="menu">
+    {% for item in site.data.navigation %}
+      {% assign active = false %}
+      {% if page.url == item.url %}{% assign active = true %}{% endif %}
+      {% for child in item.children %}{% if page.url == child.url %}{% assign active = true %}{% endif %}{% endfor %}
+      <li class="{% if active %}current{% endif %}{% if item.children %} has-children{% endif %}">
+        <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+        {% if item.children %}
+          <ul class="children">
+            {% for child in item.children %}
+              <li{% if page.url == child.url %} class="current"{% endif %}><a href="{{ child.url | relative_url }}"{% if page.url == child.url %} aria-current="page"{% endif %}>{{ child.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
